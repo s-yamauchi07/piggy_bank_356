@@ -8,5 +8,6 @@ Rails.application.routes.draw do
       resources :sessions, only: [:index]
     end
   end
+  resources :amounts, only: [:create]
 end
 
