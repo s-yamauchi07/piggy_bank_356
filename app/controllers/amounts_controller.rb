@@ -1,7 +1,9 @@
 class AmountsController < ApplicationController
   def index
-    amounts = Amount.find_by(params[:user_id])
-    render json: amounts
+    user = User.find(params[:user_id])
+    amount = user.amount
+    is_checked = user.savings
+    render json: {amount: amount, is_checked: is_checked}
   end
 
   def create
