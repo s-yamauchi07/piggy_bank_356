@@ -9,5 +9,6 @@ Rails.application.routes.draw do
     end
   end
   resources :amounts, only: [:index, :create]
+  resources :calendars, only: [:index]
 end
 
