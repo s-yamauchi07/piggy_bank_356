@@ -52,4 +52,4 @@ production:
   adapter: postgresql
   database: piggy_bank_356_production
   username: piggy_bank_356
-  password: <%= ENV['PIGGY_BANK_356_DATABASE_PASSWORD'] %>
+  url: <%= ENV['DATABASE_URL'] %>
