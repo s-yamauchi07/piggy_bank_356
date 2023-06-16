@@ -11,5 +11,6 @@ Rails.application.routes.draw do
   end
   resources :amounts, only: [:index, :create]
   resources :calendars, only: [:index]
+  resources :users, only: [:show]
 end
 
