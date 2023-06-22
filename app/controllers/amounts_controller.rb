@@ -22,6 +22,12 @@ class AmountsController < ApplicationController
     end
   end
 
+  def destroy
+    user = User.find(params[:user_id])
+    user.amount.destroy
+    user.savings.destroy_all
+  end
+
   private
   def total_amount_params
     params.permit(:total_amount, :user_id)
