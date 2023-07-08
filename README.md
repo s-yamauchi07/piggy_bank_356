@@ -1,24 +1,35 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## users table
+|Column               |Type   |Options                     |
+|---------------------|-------|----------------------------|
+|nickname             |string |null: false                 |
+|email                |string |null: false, unique: true   |
+|encrypted_password   |string |null: false, default:""     |
+|password_confirmation|string |null: false                 |
+|provider             |string |null: false, default:"email"|
+|uid                  |string |null: false, default:""     |
+|tokens               |text   |                            |
 
-Things you may want to cover:
+### Association
+- has_one :amount
+- has_many :savings
 
-* Ruby version
+## amounts table
+|Column               |Type       |Options                       |
+|---------------------|-----------|------------------------------|
+|total_amount         |integer    |null: false                   |
+|user                 |references |null: false, foreign_key: true|
 
-* System dependencies
+### Association
+- belongs_to :user
 
-* Configuration
 
-* Database creation
+## savings table
+|Column               |Type       |Options                       |
+|---------------------|-----------|------------------------------|
+|save_amount          |integer    |null: false                   |
+|user                 |references |null: false, foreign_key: true|
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+### Association
+- belongs_to :user
